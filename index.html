@@ -2,7 +2,22 @@
 <html>
   <head>
 	<meta charset="UTF-8">
-	<title>Measure. Just Testing Analytics Stuff</title>
+	<title>Measure Strategy. Just Testing Analytics Stuff</title>
+	<script>
+		// basic functions
+		const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+		function generateString(length) {
+    	let result = ' ';
+    	const charactersLength = characters.length;
+    	for ( let i = 0; i < length; i++ ) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    	}
+    	return result;
+		}
+	</script>
+
+
 	<!-- OneTrust Cookies Consent Notice start for measurestrategy.com -->
 	<script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="74f4770b-e359-45d0-971b-acba387c046c" data-dLayer-ignore="true" data-document-language="true"></script>
 	<script type="text/javascript">function OptanonWrapper(){}</script>
@@ -14,7 +29,7 @@
 	dataLayer.push({
 	  event: 'dataLayer-initialized',
 	  user: {
-		  user_unity_id: 't5bqaaemgecqff29op660qbadu',     // use undefined if not available
+		  user_unity_id: generateString(25),     // use undefined if not available
 		  user_logged_in: 'no' // yes OR no
 	  },  
 	  environment: {
