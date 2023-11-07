@@ -1,88 +1,88 @@
 <!DOCTYPE html>
 <html>
   <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
-	<title>Measure Strategy. Just Testing Analytics Stuff</title>
-	<!-- Requirted functionalities -->
-	<script>
-		// User ID handling
-		const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+  <title>Measure Strategy. Just Testing Analytics Stuff</title>
+  <!-- Requirted functionalities -->
+  <script>
+    // User ID handling
+    const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
-		function generateString(length) {
-			let result = ' ';
-			const charactersLength = characters.length;
-			for ( let i = 0; i < length; i++ ) {
-				result += characters.charAt(Math.floor(Math.random() * charactersLength));
-			}
-			return result;
-		}
-		var userID = undefined;
-		if (!sessionStorage.getItem('userID')){
-			userID = generateString(25);
-			sessionStorage.setItem('userID', userID);
-		} else {
-			userID = sessionStorage.getItem('userID');
-		}
-		// End User ID handling
-	</script>
-	<!-- End Requirted functionalities -->
+    function generateString(length) {
+      let result = ' ';
+      const charactersLength = characters.length;
+      for ( let i = 0; i < length; i++ ) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      }
+      return result;
+    }
+    var userID = undefined;
+    if (!sessionStorage.getItem('userID')){
+      userID = generateString(25);
+      sessionStorage.setItem('userID', userID);
+    } else {
+      userID = sessionStorage.getItem('userID');
+    }
+    // End User ID handling
+  </script>
+  <!-- End Requirted functionalities -->
 
-	<!-- OneTrust Cookies Consent Notice -->
-	<script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="ec143f96-fecd-436c-81f6-07d42d9c3ade" data-dLayer-ignore="true" data-document-language="true"></script>
-	<script type="text/javascript">function OptanonWrapper(){}</script>
-	<!-- End OneTrust Cookies Consent Notice -->	
+  <!-- OneTrust Cookies Consent Notice -->
+  <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="ec143f96-fecd-436c-81f6-07d42d9c3ade" data-dLayer-ignore="true" data-document-language="true"></script>
+  <script type="text/javascript">function OptanonWrapper(){}</script>
+  <!-- End OneTrust Cookies Consent Notice -->  
 
-	<!-- dataLayer init -->
-	<script> 
-	window.dataLayer = window.dataLayer || [];
-	dataLayer.push({
-	  event: 'dataLayer-initialized',
-	  user: {
-		  user_unity_id: userID,  // use undefined if not available
-		  user_logged_in: 'no'    // yes OR no
-	  },  
-	  environment: {
-		  environment_locale: 'en_ca', // use undefined if not available. ex: ca-fr
-		  environment_currency: 'CAD'  // use undefined if not available. ex: eur  
-	  }
-	});
-	</script> 
-	<!-- End dataLayer init -->
+  <!-- dataLayer init -->
+  <script> 
+  window.dataLayer = window.dataLayer || [];
+  dataLayer.push({
+    event: 'dataLayer-initialized',
+    user: {
+      user_unity_id: userID,  // use undefined if not available
+      user_logged_in: 'no'    // yes OR no
+    },  
+    environment: {
+      environment_locale: 'en_ca', // use undefined if not available. ex: ca-fr
+      environment_currency: 'CAD'  // use undefined if not available. ex: eur  
+    }
+  });
+  </script> 
+  <!-- End dataLayer init -->
 
-	<!-- Google Tag Manager -->
-	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-	})(window,document,'script','dataLayer','GTM-MWJRLWVB');</script>
-	<!-- End Google Tag Manager -->
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MWJRLWVB');</script>
+  <!-- End Google Tag Manager -->
   </head>
   <body>
-	  <header>
-		<nav>
-			<a href="/">Home</a>
-			<a href="/about">About</a>
-		</nav>
-	    <h1>Measure</h1>
-		<p>Testing Web Analytics Implemetations</p>
-	  </header>
+    <header>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+      </nav>
+      <h1>Measure</h1>
+      <p>Testing Web Analytics Implemetations</p>
+    </header>
 
-	  <main>
-	    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec viverra neque. Curabitur finibus porttitor quam, id dignissim massa mattis eu. Suspendisse dapibus nunc vel erat cursus efficitur. Aliquam ultricies eros eget urna ultricies, vitae rutrum arcu tristique. Cras sed diam ullamcorper, molestie augue a, ullamcorper tortor. Vestibulum eget ipsum at lectus imperdiet semper quis id augue. Sed rutrum magna magna, eget porttitor augue consectetur id. Sed eu nulla non erat luctus egestas non dapibus odio. Proin porttitor ipsum sed turpis semper convallis. In accumsan augue nec pulvinar hendrerit. Suspendisse fermentum ex eget neque pulvinar faucibus. Mauris semper accumsan elit, a cursus dolor sodales vitae.</p>
-	    <pre id="code"></pre>
-		<p>Aliquam pellentesque eros vel mauris scelerisque, in placerat nulla suscipit. Curabitur pulvinar congue arcu vitae finibus. Vestibulum suscipit magna et sem varius sagittis. Nullam luctus congue felis at ultrices. Pellentesque at velit sed dui posuere interdum ac vel magna. Sed dolor mi, gravida ac sem vitae, laoreet suscipit ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec volutpat aliquet justo et congue. Praesent enim nunc, facilisis sit amet tristique sit amet, fringilla eget sem. Sed nec posuere arcu, in sollicitudin nunc. Nunc quam quam, porttitor ut condimentum et, eleifend et tellus.</p>
-	    <img alt="A dog on an iPad" src="/img/dog-ipad.jpg" />
-		<p>Phasellus ut cursus tellus. Morbi ac magna ut magna fermentum tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse feugiat, ante in gravida tristique, ipsum ante dapibus orci, non fermentum mi velit id lacus. Duis ac nulla ut odio laoreet dictum id eu purus. Sed ornare maximus est, in facilisis magna ullamcorper nec. Duis ac elit eros. Phasellus leo turpis, ultrices sit amet molestie ut, porta vitae arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis hendrerit mattis malesuada. Proin ultrices consequat massa at sollicitudin. Pellentesque et aliquam nunc. Donec ac porta orci. Proin consequat mollis purus non porttitor. Nulla aliquam consectetur dui eget ultricies. Proin sed tortor eleifend, porttitor enim eget, maximus nunc.</p>
-	  </main>
+    <main>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec viverra neque. Curabitur finibus porttitor quam, id dignissim massa mattis eu. Suspendisse dapibus nunc vel erat cursus efficitur. Aliquam ultricies eros eget urna ultricies, vitae rutrum arcu tristique. Cras sed diam ullamcorper, molestie augue a, ullamcorper tortor. Vestibulum eget ipsum at lectus imperdiet semper quis id augue. Sed rutrum magna magna, eget porttitor augue consectetur id. Sed eu nulla non erat luctus egestas non dapibus odio. Proin porttitor ipsum sed turpis semper convallis. In accumsan augue nec pulvinar hendrerit. Suspendisse fermentum ex eget neque pulvinar faucibus. Mauris semper accumsan elit, a cursus dolor sodales vitae.</p>
+      <pre id="code"></pre>
+      <p>Aliquam pellentesque eros vel mauris scelerisque, in placerat nulla suscipit. Curabitur pulvinar congue arcu vitae finibus. Vestibulum suscipit magna et sem varius sagittis. Nullam luctus congue felis at ultrices. Pellentesque at velit sed dui posuere interdum ac vel magna. Sed dolor mi, gravida ac sem vitae, laoreet suscipit ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec volutpat aliquet justo et congue. Praesent enim nunc, facilisis sit amet tristique sit amet, fringilla eget sem. Sed nec posuere arcu, in sollicitudin nunc. Nunc quam quam, porttitor ut condimentum et, eleifend et tellus.</p>
+      <img alt="A dog on an iPad" src="/img/dog-ipad.jpg" />
+      <p>Phasellus ut cursus tellus. Morbi ac magna ut magna fermentum tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse feugiat, ante in gravida tristique, ipsum ante dapibus orci, non fermentum mi velit id lacus. Duis ac nulla ut odio laoreet dictum id eu purus. Sed ornare maximus est, in facilisis magna ullamcorper nec. Duis ac elit eros. Phasellus leo turpis, ultrices sit amet molestie ut, porta vitae arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis hendrerit mattis malesuada. Proin ultrices consequat massa at sollicitudin. Pellentesque et aliquam nunc. Donec ac porta orci. Proin consequat mollis purus non porttitor. Nulla aliquam consectetur dui eget ultricies. Proin sed tortor eleifend, porttitor enim eget, maximus nunc.</p>
+    </main>
 
-	  <footer>
-	    <p>CSS by <a href="https://simplecss.org/">simplecss.org</a></p>
-	  </footer>
+    <footer>
+      <p>CSS by <a href="https://simplecss.org/">simplecss.org</a></p>
+    </footer>
 
-	  <script>
-		document.getElementById('code').innerHTML = "User ID is: " + userID;
-	  </script>
+    <script>
+      document.getElementById('code').innerHTML = "User ID is: " + userID;
+    </script>
   </body>
 </html>
