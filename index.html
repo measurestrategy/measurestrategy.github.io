@@ -6,17 +6,19 @@
 	<title>Measure Strategy. Just Testing Analytics Stuff</title>
 	<!-- Requirted functionalities -->
 	<script>
-		// User ID
+		// User ID handling
 		const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
 		function generateString(length) {
-    	let result = ' ';
-    	const charactersLength = characters.length;
-    	for ( let i = 0; i < length; i++ ) {
-        result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    	}
-    	return result;
+			let result = ' ';
+			const charactersLength = characters.length;
+			for ( let i = 0; i < length; i++ ) {
+				result += characters.charAt(Math.floor(Math.random() * charactersLength));
+			}
+			return result;
 		}
+
+
 	</script>
 	<!-- End Requirted functionalities -->
 
@@ -54,12 +56,12 @@
   </head>
   <body>
 	  <header>
+		<nav>
+			<a href="/">Home</a>
+			<a href="/about">About</a>
+		</nav>
 	    <h1>Measure</h1>
-	    <h2>Testing Analytics Implementations.</h2>
-	    <nav>
-			  <a href="/">Home</a>
-			  <a href="/about">About</a>
-			</nav>
+		<p>Testing Web Analytics Implemetations</p>
 	  </header>
 
 	  <main>
