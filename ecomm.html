@@ -65,6 +65,8 @@
   <script>
     // Simulate Order Completed
     document.getElementById('order_completed').addEventListener('click', function(){
+      console.log('order_completed button clicked');
+      
       var dataObj = {
         event: 'userEvent',
         event_name: 'order_completed',
