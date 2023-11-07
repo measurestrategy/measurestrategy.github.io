@@ -17,10 +17,12 @@
 			}
 			return result;
 		}
-
-		if (!sessionStorage.getItem('userID')) {
-			var userID = generateString(25);
+		var userID = undefined;
+		if (!sessionStorage.getItem('userID')){
+			userID = generateString(25);
 			sessionStorage.setItem('userID', userID);
+		} else {
+			userID = sessionStorage.getItem('userID');
 		}
 		
 	</script>
