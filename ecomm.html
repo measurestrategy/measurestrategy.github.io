@@ -5,7 +5,8 @@
   <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
-  <title>Measure Strategy. eComm Simulation</title>
+  <title>Measure. eComm Simulation</title>
+
   <!-- Generic functions -->
   <script>
     // User ID handling
@@ -59,30 +60,6 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-MWJRLWVB');</script>
   <!-- End Google Tag Manager -->
-
-
-
-  <!-- Local funtions -------------------------------------------------------------------------------------->
-  <script>
-    // Simulate Order Completed
-    document.getElementById('order_completed').addEventListener('click', function(){
-      console.log('order_completed button clicked');
-
-      var dataObj = {
-        event: 'userEvent',
-        event_name: 'order_completed',
-        properties: {
-          cart_id: 'ws937dj347thdhwie4if',
-          cart_items: '3',
-          cart_total: '567.65',
-          cart_discount: '10.35',
-          cart_currency: 'USD'
-        }  
-      };
-      window.dataLayer.push(dataObj);
-    });
-  </script>
-  <!-- End Local funtions -------------------------------------------------------------------------------------->
   </head>
   <body>
     <header>
@@ -103,8 +80,30 @@
       <p>CSS by <a href="https://simplecss.org/">simplecss.org</a></p>
     </footer>
 
+    <!-- Local funtions -------------------------------------------------------------------------------------->
     <script>
+      // display user ID
       document.getElementById('code').innerHTML = "User ID is: " + userID;
+
+
+      // Simulate Order Completed
+      document.getElementById('order_completed').addEventListener('click', function(){
+      console.log('order_completed button clicked');
+
+      var dataObj = {
+        event: 'userEvent',
+        event_name: 'order_completed',
+        properties: {
+          cart_id: 'ws937dj347thdhwie4if',
+          cart_items: '3',
+          cart_total: '567.65',
+          cart_discount: '10.35',
+          cart_currency: 'USD'
+        }  
+      };
+      window.dataLayer.push(dataObj);
+    });  
     </script>
+    <!-- End Local funtions ---------------------------------------------------------------------------------->
   </body>
 </html>
