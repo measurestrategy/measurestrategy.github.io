@@ -61,11 +61,25 @@
 
 
 
-  <!-- Local funtions -->
+  <!-- Local funtions -------------------------------------------------------------------------------------->
   <script>
-
+    // Simulate Order Completed
+    document.getElementById('order_completed').addEventListener('click', function(){
+      var dataObj = {
+        event: 'userEvent',
+        event_name: 'order_completed',
+        properties: {
+          cart_id: 'ws937dj347thdhwie4if',
+          cart_items: '3'
+          cart_total: '567.65',
+          cart_discount: '10.35',
+          cart_currency: 'USD'
+        }  
+      };
+      window.dataLayer.push(dataObj);
+    });
   </script>
-  <!-- End Local funtions -->
+  <!-- End Local funtions -------------------------------------------------------------------------------------->
   </head>
   <body>
     <header>
