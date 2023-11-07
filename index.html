@@ -18,7 +18,11 @@
 			return result;
 		}
 
-
+		if (!sessionStorage.getItem('userID')) {
+			var userID = generateString(25);
+			sessionStorage.setItem('userID', userID);
+		}
+		
 	</script>
 	<!-- End Requirted functionalities -->
 
@@ -33,11 +37,11 @@
 	dataLayer.push({
 	  event: 'dataLayer-initialized',
 	  user: {
-		  user_unity_id: generateString(25),     // use undefined if not available
-		  user_logged_in: 'no' // yes OR no
+		  user_unity_id: userID,  // use undefined if not available
+		  user_logged_in: 'no'    // yes OR no
 	  },  
 	  environment: {
-		  environment_locale: 'en_ca',     // use undefined if not available. ex: ca-fr
+		  environment_locale: 'en_ca', // use undefined if not available. ex: ca-fr
 		  environment_currency: 'CAD'  // use undefined if not available. ex: eur  
 	  }
 	});
