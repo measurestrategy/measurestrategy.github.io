@@ -1,65 +1,66 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <meta charset="UTF-8">
-  <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
-  <title>Measure. eComm Simulation</title>
-
-  <!-- Generic functions -->
-  <script>
-    // User ID handling
-    const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-
-    function generateString(length) {
-      let result = '';
-      const charactersLength = characters.length;
-      for ( let i = 0; i < length; i++ ) {
-        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <title>Measure. eComm Simulation</title>
+  
+    <!-- Generic functions -->
+    <script>
+      // User ID handling
+      const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  
+      function generateString(length) {
+        let result = '';
+        const charactersLength = characters.length;
+        for ( let i = 0; i < length; i++ ) {
+          result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        return result;
       }
-      return result;
-    }
-    var userID = undefined;
-    if (!sessionStorage.getItem('userID')){
-      userID = generateString(25);
-      sessionStorage.setItem('userID', userID);
-    } else {
-      userID = sessionStorage.getItem('userID');
-    }
-    // End User ID handling
-  </script>
-  <!-- End Generic functions -->
-
-  <!-- OneTrust Cookies Consent Notice -->
-  <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="ec143f96-fecd-436c-81f6-07d42d9c3ade" data-dLayer-ignore="true" data-document-language="true"></script>
-  <script type="text/javascript">function OptanonWrapper(){}</script>
-  <!-- End OneTrust Cookies Consent Notice -->  
-
-  <!-- dataLayer init -->
-  <script> 
-  window.dataLayer = window.dataLayer || [];
-  dataLayer.push({
-    event: 'dataLayer_initialized',
-    user: {
-      user_unity_id: userID,  // use undefined if not available
-      user_logged_in: 'no'    // yes OR no
-    },  
-    environment: {
-      environment_locale: 'en_ca', // use undefined if not available. ex: ca-fr
-      environment_currency: 'CAD'  // use undefined if not available. ex: eur  
-    }
-  });
-  </script> 
-  <!-- End dataLayer init -->
-
-  <!-- Google Tag Manager GTM-MWJRLWVB -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-MWJRLWVB');</script>
-  <!-- End Google Tag Manager -->
+      var userID = undefined;
+      if (!sessionStorage.getItem('userID')){
+        userID = generateString(25);
+        sessionStorage.setItem('userID', userID);
+      } else {
+        userID = sessionStorage.getItem('userID');
+      }
+      // End User ID handling
+    </script>
+    <!-- End Generic functions -->
+  
+    <!-- OneTrust Cookies Consent Notice -->
+    <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="ec143f96-fecd-436c-81f6-07d42d9c3ade" data-dLayer-ignore="true" data-document-language="true"></script>
+    <script type="text/javascript">function OptanonWrapper(){}</script>
+    <!-- End OneTrust Cookies Consent Notice -->  
+  
+    <!-- dataLayer init -->
+    <script> 
+    window.dataLayer = window.dataLayer || [];
+    dataLayer.push({
+      event: 'dataLayer_initialized',
+      user: {
+        user_unity_id: userID,  // use undefined if not available
+        user_logged_in: 'no'    // yes OR no
+      },  
+      environment: {
+        environment_locale: 'en_ca', // use undefined if not available. ex: ca-fr
+        environment_currency: 'CAD'  // use undefined if not available. ex: eur  
+      }
+    });
+    </script> 
+    <!-- End dataLayer init -->
+  
+    <!-- Google Tag Manager GTM-MWJRLWVB -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MWJRLWVB');</script>
+    <!-- End Google Tag Manager -->
+    
   </head>
   <body>
     <header>
