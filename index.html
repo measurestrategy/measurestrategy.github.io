@@ -146,7 +146,7 @@
       // fire event
       var btn0 = document.getElementById("myBtn0");
       btn0.onclick = function() {
-        window.datalayer.push({
+        window.dataLayer.push({
           event: 'test_event',
           properties: {}
         });
@@ -171,7 +171,7 @@
       // fire event in modal
       var btn2 = document.getElementById("myBtn2");
       btn2.onclick = function() {
-        window.datalayer.push({
+        window.dataLayer.push({
           event: 'test_event',
           properties: {
             is_modal: true,
