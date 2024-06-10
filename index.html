@@ -60,7 +60,47 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-MWJRLWVB');</script>
     <!-- End Google Tag Manager -->
-  
+
+    <style>
+    /* The Modal (background) */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+    
+    /* Modal Content/Box */
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto; /* 15% from the top and centered */
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%; /* Could be more or less, depending on screen size */
+    }
+    
+    /* The Close Button */
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    </style>
+    
   </head>
   <body>
     <header>
@@ -78,6 +118,18 @@
       <p>Aliquam pellentesque eros vel mauris scelerisque, in placerat nulla suscipit. Curabitur pulvinar congue arcu vitae finibus. Vestibulum suscipit magna et sem varius sagittis. Nullam luctus congue felis at ultrices. Pellentesque at velit sed dui posuere interdum ac vel magna. Sed dolor mi, gravida ac sem vitae, laoreet suscipit ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec volutpat aliquet justo et congue. Praesent enim nunc, facilisis sit amet tristique sit amet, fringilla eget sem. Sed nec posuere arcu, in sollicitudin nunc. Nunc quam quam, porttitor ut condimentum et, eleifend et tellus.</p>
       <img alt="A dog on an iPad" src="/img/dog-ipad.jpg" />
       <p>Phasellus ut cursus tellus. Morbi ac magna ut magna fermentum tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse feugiat, ante in gravida tristique, ipsum ante dapibus orci, non fermentum mi velit id lacus. Duis ac nulla ut odio laoreet dictum id eu purus. Sed ornare maximus est, in facilisis magna ullamcorper nec. Duis ac elit eros. Phasellus leo turpis, ultrices sit amet molestie ut, porta vitae arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis hendrerit mattis malesuada. Proin ultrices consequat massa at sollicitudin. Pellentesque et aliquam nunc. Donec ac porta orci. Proin consequat mollis purus non porttitor. Nulla aliquam consectetur dui eget ultricies. Proin sed tortor eleifend, porttitor enim eget, maximus nunc.</p>
+    
+      <!-- Trigger/Open The Modal -->
+      <button id="myBtn">Open Modal</button>
+      <!-- The Modal -->
+      <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>Some text in the Modal..</p>
+        </div>
+      </div>
+    
     </main>
 
     <footer>
@@ -88,6 +140,23 @@
     <script>
       // display user ID
       document.getElementById('code').innerHTML = "User ID is: " + userID;
+
+      // Modal window
+      var modal = document.getElementById("myModal");
+      var btn = document.getElementById("myBtn");
+      var span = document.getElementsByClassName("close")[0];
+      btn.onclick = function() {
+        modal.style.display = "block";
+      }
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+      
     </script>
     <!-- End Local funtions ---------------------------------------------------------------------------------->
     <script src="https://measurestrategy.github.io/scripts.js"></script>
