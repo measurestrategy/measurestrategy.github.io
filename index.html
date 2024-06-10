@@ -118,15 +118,17 @@
       <p>Aliquam pellentesque eros vel mauris scelerisque, in placerat nulla suscipit. Curabitur pulvinar congue arcu vitae finibus. Vestibulum suscipit magna et sem varius sagittis. Nullam luctus congue felis at ultrices. Pellentesque at velit sed dui posuere interdum ac vel magna. Sed dolor mi, gravida ac sem vitae, laoreet suscipit ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec volutpat aliquet justo et congue. Praesent enim nunc, facilisis sit amet tristique sit amet, fringilla eget sem. Sed nec posuere arcu, in sollicitudin nunc. Nunc quam quam, porttitor ut condimentum et, eleifend et tellus.</p>
       <img alt="A dog on an iPad" src="/img/dog-ipad.jpg" />
       <p>Phasellus ut cursus tellus. Morbi ac magna ut magna fermentum tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse feugiat, ante in gravida tristique, ipsum ante dapibus orci, non fermentum mi velit id lacus. Duis ac nulla ut odio laoreet dictum id eu purus. Sed ornare maximus est, in facilisis magna ullamcorper nec. Duis ac elit eros. Phasellus leo turpis, ultrices sit amet molestie ut, porta vitae arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis hendrerit mattis malesuada. Proin ultrices consequat massa at sollicitudin. Pellentesque et aliquam nunc. Donec ac porta orci. Proin consequat mollis purus non porttitor. Nulla aliquam consectetur dui eget ultricies. Proin sed tortor eleifend, porttitor enim eget, maximus nunc.</p>
-    
+      
+      <button id="myBtn0">Fire event</button>
+      
       <!-- Trigger/Open The Modal -->
-      <button id="myBtn">Open Modal</button>
+      <button id="myBtn1">Open Modal</button>
       <!-- The Modal -->
       <div id="myModal" class="modal">
         <!-- Modal content -->
         <div class="modal-content">
           <span class="close">&times;</span>
-          <p>Some text in the Modal..</p>
+          <p><button id="myBtn2">Fire event in modal</button></p>
         </div>
       </div>
     
@@ -140,12 +142,21 @@
     <script>
       // display user ID
       document.getElementById('code').innerHTML = "User ID is: " + userID;
-
+      
+      // fire event
+      var btn0 = document.getElementById("myBtn0");
+      btn0.onclick = function() {
+        window.datalayer.push({
+          event: 'test_event',
+          properties: {}
+        });
+      }
+      
       // Modal window
       var modal = document.getElementById("myModal");
-      var btn = document.getElementById("myBtn");
+      var btn1 = document.getElementById("myBtn1");
       var span = document.getElementsByClassName("close")[0];
-      btn.onclick = function() {
+      btn1.onclick = function() {
         modal.style.display = "block";
       }
       span.onclick = function() {
@@ -157,6 +168,18 @@
         }
       }
       
+      // fire event in modal
+      var btn2 = document.getElementById("myBtn2");
+      btn2.onclick = function() {
+        window.datalayer.push({
+          event: 'test_event',
+          properties: {
+            is_modal: true,
+            page_path: '/modal',
+            page_title: 'Measure: Modal Window'
+          }
+        });
+      }
     </script>
     <!-- End Local funtions ---------------------------------------------------------------------------------->
     <script src="https://measurestrategy.github.io/scripts.js"></script>
