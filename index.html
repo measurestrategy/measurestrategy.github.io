@@ -156,9 +156,19 @@
       var modal = document.getElementById("myModal");
       var btn1 = document.getElementById("myBtn1");
       var span = document.getElementsByClassName("close")[0];
+      // open modal 
       btn1.onclick = function() {
         modal.style.display = "block";
+        window.dataLayer.push({
+          event: 'pageview',
+          event_name: 'page_view_modal',
+          properties: {
+            page_path: '/payment-methods',
+            page_title: 'Measure. Payment Methods Management'
+          }
+        });
       }
+      // close modal
       span.onclick = function() {
         modal.style.display = "none";
       }
