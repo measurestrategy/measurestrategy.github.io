@@ -1,3 +1,3 @@
 (function (){
-  console.log('external script loaded');
+  //console.log('external script loaded');
 })();
