@@ -133,51 +133,13 @@
         </div>
       </div>
       
-      <!-- YT video -->
+      <!-- HTML video -->
       <div>
-        <iframe id="yt01" width="560" height="315" src="https://www.youtube.com/embed/o1JIK5W3DRU?si=NQaACskpz0kf5Nky" title="YouTube video player" frameborder="0" allow="" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <video id='video' controls="controls" width="715" poster="https://assets.codepen.io/32795/poster.png">
+        <source id='mp4' src="http://media.w3.org/2010/05/sintel/trailer.mp4" type='video/mp4' />
+      </video> 
         <script>
-        //Holds a reference to the YouTube player
-        var yt_player;
-        
-        //this function is called by the API
-        function onYouTubeIframeAPIReady() {
-          //creates the player object
-          yt_player = new YT.Player('yt01');
-               
-          console.log('Video API is loaded');
-               
-          //subscribe to events
-          yt_player.addEventListener("onReady",       "onYouTubePlayerReady");
-          yt_player.addEventListener("onStateChange", "onYouTubePlayerStateChange");
-        }
-        
-        function onYouTubePlayerReady() {
-          console.log('Video is ready to play');
-        }
-        
-        function onYouTubePlayerStateChange(event) {
-          switch (event.data) {
-            case YT.PlayerState.UNSTARTED:
-              console.log('unstarted');
-              break;
-            case YT.PlayerState.ENDED:
-              console.log('ended');
-              break;
-            case YT.PlayerState.PLAYING:
-              console.log('playing');
-              break;
-            case YT.PlayerState.PAUSED:
-              console.log('paused');
-              break;
-            case YT.PlayerState.BUFFERING:
-              console.log('buffering');
-              break;
-            case YT.PlayerState.CUED:
-              console.log('video cued');
-              break;
-          }
-        }
+
         </script>
       </div> 
     </main>
