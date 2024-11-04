@@ -135,11 +135,20 @@
       
       <!-- HTML video -->
       <div>
-      <video id='video' controls="controls" width="715" poster="https://assets.codepen.io/32795/poster.png">
-        <source id='mp4' src="http://media.w3.org/2010/05/sintel/trailer.mp4" type='video/mp4' />
-      </video> 
+        <video id='html-video-01' controls="controls" width="100%" poster="https://assets.codepen.io/32795/poster.png">
+          <source id='mp4' src="http://media.w3.org/2010/05/sintel/trailer.mp4" type='video/mp4' />
+        </video>
         <script>
-
+        //var video = document.querySelector('html-video-01');
+        var video = document.getElementById('html-video-01')
+        
+        video.addEventListener("play", (event) => {
+          console.log('VIdeo play');
+        });
+        
+        video.addEventListener("pause", (event) => {
+          console.log('Video paused');
+        });
         </script>
       </div> 
     </main>
