@@ -6,32 +6,7 @@
     <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
-    <title>Measure. eComm Simulation</title>
-  
-    <!-- Generic functions -->
-    <script>
-      // User ID handling
-      const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  
-      function generateString(length) {
-        let result = '';
-        const charactersLength = characters.length;
-        for ( let i = 0; i < length; i++ ) {
-          result += characters.charAt(Math.floor(Math.random() * charactersLength));
-        }
-        return result;
-      }
-      var userID = undefined;
-      if (!sessionStorage.getItem('userID')){
-        userID = generateString(25);
-        sessionStorage.setItem('userID', userID);
-      } else {
-        userID = sessionStorage.getItem('userID');
-      }
-      // End User ID handling
-    </script>
-    <!-- End Generic functions -->
-
+    <title>Measure. Tracking Embedded Media</title>
   </head>
   <body>
     <header>
@@ -45,18 +20,9 @@
     </header>
 
     <main>
-      <p>iFrame in Staging. Use VPN</p>
-      <iframe src="https://play-staging.struckd.com/api/v1/struckd/app?unity" frameborder="0" scrolling="no" style="overflow:hidden;height:320px;width:720px" height="320px" width="720px"></iframe>
+      <iframe src="https://play-staging.struckd.com/api/v1/struckd/app?unity" frameborder="0" height="500px" width="720px"></iframe>
+      <p>iFrame source is in staging environemnt. Use VPN</p>
     </main>
 
-    <footer>
-      <div>Lorem ipsum...</div>
-    </footer>
-
-    <!-- Local funtions -------------------------------------------------------------------------------------->
-    <script>
-
-    </script>
-    <!-- End Local funtions ---------------------------------------------------------------------------------->
   </body>
 </html>
