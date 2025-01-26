@@ -48,6 +48,7 @@
     <!-- Amplitude https://amplitude.com/docs/sdks/analytics/browser/browser-sdk-2-->
     <script src="https://cdn.amplitude.com/script/57b4b0482120f879aa7ee4d34d7cfd72.js"></script>
     <script>
+      var ampAPIkey = '57b4b0482120f879aa7ee4d34d7cfd72';
       var ampOptions = {
         autocapture: {
           attribution: true,
@@ -59,7 +60,7 @@
         }
       };
       console.log('userID: '+userID);
-      amplitude.init(57b4b0482120f879aa7ee4d34d7cfd72, userID, ampOptions);
+      amplitude.init(ampAPIkey, userID, ampOptions);
     </script>
     
   </head>
