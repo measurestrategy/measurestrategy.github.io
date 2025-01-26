@@ -6,7 +6,7 @@
     <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
-    <title>Measure. Just Testing Analytics Stuff</title>
+    <title>Measure. Testing Analytics Stuff</title>
     <script>
       // User ID handling
       const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -27,24 +27,6 @@
       }
     </script>
    
-    <!-- dataLayerInit -->
-    <script> 
-    window.dataLayer = window.dataLayer || [];
-    dataLayer.push({
-      event: 'dataLayerInit',
-      user: {
-        user_id: userID,  // use undefined if not available
-      }
-    });
-    </script> 
-  
-    <!-- Google Tag Manager GTM-MWJRLWVB -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-P6BZZJZX');</script>
-    
     <!-- Amplitude https://amplitude.com/docs/sdks/analytics/browser/browser-sdk-2-->
     <script src="https://cdn.amplitude.com/script/57b4b0482120f879aa7ee4d34d7cfd72.js"></script>
     <script>
@@ -61,7 +43,6 @@
       };
       amplitude.init(ampAPIkey, userID, ampOptions);
     </script>
-    
   </head>
   <body>
     <header>
