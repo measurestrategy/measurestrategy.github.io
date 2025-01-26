@@ -25,12 +25,13 @@
       } else {
         userID = sessionStorage.getItem('userID');
       }
-      var user_is_logged = (userID) ? 'yes' : 'no';
+      var user_is_logged = (userID != undefined) ? true : false;
     </script>
 
     <!-- Amplitude https://amplitude.com/docs/sdks/analytics/browser/browser-sdk-2-->
     <script src="https://cdn.amplitude.com/script/57b4b0482120f879aa7ee4d34d7cfd72.js"></script>
     <script>
+      // SKD init and Page View
       var ampAPIkey = '57b4b0482120f879aa7ee4d34d7cfd72';
       var ampOptions = {
         autocapture: {
@@ -42,14 +43,12 @@
           elementInteractions: false,
         }
       };
-      amplitude.init(ampAPIkey, userID, ampOptions).promise.then(function(result){
-        var ampData = {
-          sessionID: amplitude.getSessionId(),
-          deviceID: amplitude.getDeviceId(),
-          userID: amplitude.getUserId(),
-        };
-        console.table(ampData);
-      });
+      amplitude.init(ampAPIkey, userID, ampOptions);
+      
+      // $identify
+      const identifyEvent = new amplitude.Identify();
+      identifyEvent.set('user_is_logged', user_is_logged); 
+      amplitude.identify(identifyEvent);
     </script>
   </head>
   <body>
