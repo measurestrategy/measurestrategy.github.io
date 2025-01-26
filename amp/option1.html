@@ -25,6 +25,7 @@
       } else {
         userID = sessionStorage.getItem('userID');
       }
+      var user_is_logged = (userID) ? 'yes' : 'no';
     </script>
 
     <!-- Amplitude https://amplitude.com/docs/sdks/analytics/browser/browser-sdk-2-->
@@ -41,7 +42,14 @@
           elementInteractions: false,
         }
       };
-      amplitude.init(ampAPIkey, userID, ampOptions);
+      amplitude.init(ampAPIkey, userID, ampOptions).promise.then(function(result){
+        var ampData: {
+          sessionID: amplitude.getSessionId(),
+          deviceID: amplitude.getDeviceId(),
+          userID: amplitude.getUserId(),
+        };
+        conlose.table(ampData);
+      });
     </script>
   </head>
   <body>
