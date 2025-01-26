@@ -20,7 +20,7 @@
       }
       var userID = undefined;
       if (!sessionStorage.getItem('userID')){
-        userID = generateString(25);
+        userID = generateString(15);
         sessionStorage.setItem('userID', userID);
       } else {
         userID = sessionStorage.getItem('userID');
