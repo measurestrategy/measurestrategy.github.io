@@ -43,7 +43,7 @@
         }
       };
       amplitude.init(ampAPIkey, userID, ampOptions).promise.then(function(result){
-        var ampData: {
+        var ampData = {
           sessionID: amplitude.getSessionId(),
           deviceID: amplitude.getDeviceId(),
           userID: amplitude.getUserId(),
