@@ -44,6 +44,22 @@
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-P6BZZJZX');</script>
+    
+    <!-- Amplitude -->
+    <script src="https://cdn.amplitude.com/script/57b4b0482120f879aa7ee4d34d7cfd72.js"></script>
+    <script>
+      amplitude.init(57b4b0482120f879aa7ee4d34d7cfd72, {
+        autocapture: {
+          attribution: true,
+          pageViews: true,
+          sessions: true,
+          formInteractions: false,
+          fileDownloads: false,
+          elementInteractions: false,
+        },
+      });
+    </script>
+    
   </head>
   <body>
     <header>
