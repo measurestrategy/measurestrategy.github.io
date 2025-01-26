@@ -6,7 +6,7 @@
     <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
-    <title>Measure. Just Testing Analytics Stuff</title>
+    <title>Measure. Testing Analytics Stuff</title>
     <script>
       // User ID handling
       const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -44,24 +44,6 @@
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-P6BZZJZX');</script>
-    
-    <!-- Amplitude https://amplitude.com/docs/sdks/analytics/browser/browser-sdk-2-->
-    <script src="https://cdn.amplitude.com/script/57b4b0482120f879aa7ee4d34d7cfd72.js"></script>
-    <script>
-      var ampAPIkey = '57b4b0482120f879aa7ee4d34d7cfd72';
-      var ampOptions = {
-        autocapture: {
-          attribution: true,
-          pageViews: true,
-          sessions: true,
-          formInteractions: false,
-          fileDownloads: false,
-          elementInteractions: false,
-        }
-      };
-      amplitude.init(ampAPIkey, userID, ampOptions);
-    </script>
-    
   </head>
   <body>
     <header>
@@ -71,8 +53,8 @@
         <a href="/amp/option3.html">Option 3</a>
         <a href="/amp/option4.html">Option 4</a>
       </nav>
-      <h3>Amplituide Web</h3>
-      <h4>Opion 1. Hard-coded Browser SKD</h4>
+      <h3>Amplitude Web. Option 2</h3>
+      <h4>GTM + Amplitude Template with defaults</h4>
     </header>
 
     <main>
@@ -89,6 +71,9 @@
     </footer>
     
     <script>
+      // display user ID
+      document.getElementById('code').innerHTML = "User ID is: " + userID;
+
       // CAT click track event
       var btn0 = document.getElementById("myBtn0");
       btn0.onclick = function(){
