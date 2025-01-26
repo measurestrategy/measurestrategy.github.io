@@ -27,7 +27,7 @@
       }
     </script>
    
-    <!-- dataLayer init -->
+    <!-- dataLayerInit -->
     <script> 
     window.dataLayer = window.dataLayer || [];
     dataLayer.push({
@@ -58,6 +58,7 @@
           elementInteractions: false,
         }
       };
+      console.log('userID: '+userID);
       amplitude.init(57b4b0482120f879aa7ee4d34d7cfd72, userID, ampOptions);
     </script>
     
