@@ -70,19 +70,6 @@
     <script>
       // display user ID
       document.getElementById('code').innerHTML = "User ID is: " + userID;
-
-      // CAT click track event
-      var btn0 = document.getElementById("myBtn0");
-      btn0.onclick = function(){
-        const eventData = {
-          name: 'CTA_click',
-          properties: {
-            cta_text: 'Click me!',
-            page: document.location.href  
-          }
-         };
-        amplitude.track(eventData.name, eventData.properties);
-     };
     </script>
   </body>
 </html>
