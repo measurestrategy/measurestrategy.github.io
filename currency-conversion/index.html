@@ -22,28 +22,37 @@
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-KZL98WZJ');</script>
+
+  <script>
+    // simulate purchase
+    var order_complete = {
+      event: 'order_complete',
+      order_total: {
+        KRW: 54370.56  
+      }
+    };
+    dataLayer.push(order_complete);
+    document.getElementById('ordTotal').innerHTML = order_complete;
+  </script>
   </head>
   <body>
     <header>
-      <nav>
-        <a href="#">Option 1</a>
-      </nav>
       <h3>Currency Conversion</h3>
       <h4>GTM + Google Sheets + Apps Script</h4>
     </header>
     <main>
-      <p>How to enable currency conversion in GTM for your tracking and marketing tags for free.</p>
-      <pre id="code"></pre>
-      <p><a href="javascript:void(0);" id="myBtn0">Click me!</a></p>
+      <p>How to enable currency conversion in GTM for your tracking and marketing tags for free. No calls to currency exchange APIs required. Updated as frequently as you need.</p>
+      <pre id="ordTotal"></pre>
+      <p><a href="javascript:void(0);" id="convert">Convert to USD</a></p>
+      <pre id="ordTotalUSD"></pre>
       <img alt="A dog on an iPad" src="/img/dog-ipad.jpg" />
       <p>Phasellus ut cursus tellus. Morbi ac magna ut magna fermentum tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse feugiat</p>
     </main>
     <footer>
       <div><a href="https://www.linkedin.com/in/anilopez/">Ani Lopez</a></div>
     </footer>
+
     <script>
-      // display user ID
-      document.getElementById('code').innerHTML = "User ID: " + userID;
     </script>
   </body>
 </html>
