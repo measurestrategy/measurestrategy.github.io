@@ -41,11 +41,11 @@
     <main>
       <p>How to enable currency conversion in GTM for your tracking and marketing tags for free. No calls to currency exchange APIs required. Updated as frequently as you need.</p>
       <pre id="ordTotal">
-  var order_complete = {
+        dataLayer.push({
     event: 'order_complete',
     order_currency: 'KRW',
     order_total: 54370.56
-  };
+  });
       </pre>
       <p><a href="javascript:void(0);" id="convert">Convert to USD</a></p>
       <pre id="ordTotalUSD"></pre>
