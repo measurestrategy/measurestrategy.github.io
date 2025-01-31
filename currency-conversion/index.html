@@ -25,11 +25,11 @@
 
   <script>
     // simulate purchase
-    dataLayer.push({
+    var order_complete = {
       event: 'order_complete',
       order_currency: 'KRW',
       order_total: 54370.56
-    });
+    };
     dataLayer.push(order_complete);
   </script>
   </head>
@@ -39,14 +39,13 @@
       <h4>GTM + Google Sheets + Apps Script</h4>
     </header>
     <main>
-      <p>How to enable currency conversion in GTM for your tracking and marketing tags for free. No calls to currency exchange APIs required. Updated as frequently as you need.</p>
+      <p>How to enable currency conversion in GTM for your tracking and marketing tags for free. No calls to currency exchange APIs required. Update exchange rate as frequently as you need.</p>
       <pre id="ordTotal">
   dataLayer.push({
     event: 'order_complete',
     order_currency: 'KRW',
     order_total: 54370.56
-  });
-      </pre>
+  });</pre>
       <p><a href="javascript:void(0);" id="convert">Convert to USD</a></p>
       <pre id="ordTotalUSD"></pre>
       <img alt="A dog on an iPad" src="/img/dog-ipad.jpg" />
