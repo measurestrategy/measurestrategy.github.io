@@ -49,12 +49,11 @@
           order_total: 54370.56  
         };
         window.dataLayer.push(dataObj);
-        order_complete_txt = "dataLayer.push({
-          event: 'order_complete',
-          order_currency: 'KRW',
-          order_total: 54370.56  
-        });"
-
+        order_complete_txt = `dataLayer.push({
+  event: 'order_complete',
+  order_currency: 'KRW',
+  order_total: 54370.56  
+});`;
         document.getElementById('ordTotal').innerHTML = order_complete_txt;
       });  
     </script>
