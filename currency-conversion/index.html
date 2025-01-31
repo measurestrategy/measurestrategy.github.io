@@ -22,16 +22,6 @@
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-KZL98WZJ');</script>
-
-  <script>
-    // simulate purchase
-    var order_complete = {
-      event: 'order_complete',
-      order_currency: 'KRW',
-      order_total: 54370.56
-    };
-    dataLayer.push(order_complete);
-  </script>
   </head>
   <body>
     <header>
@@ -40,13 +30,8 @@
     </header>
     <main>
       <p>How to enable currency conversion in GTM for your tracking and marketing tags for free. No calls to currency exchange APIs required. Update exchange rate as frequently as you need.</p>
-      <pre id="ordTotal">
-  dataLayer.push({
-    event: 'order_complete',
-    order_currency: 'KRW',
-    order_total: 54370.56
-  });</pre>
-      <p><a href="javascript:void(0);" id="convert">Convert to USD</a></p>
+      <pre id="ordTotal"></pre>
+      <p><button id="order_completed">Simulate Order Completed</button></p>
       <pre id="ordTotalUSD"></pre>
       <img alt="A dog on an iPad" src="/img/dog-ipad.jpg" />
       <p>Phasellus ut cursus tellus. Morbi ac magna ut magna fermentum tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse feugiat</p>
@@ -56,7 +41,17 @@
     </footer>
 
     <script>
-      //document.getElementById('ordTotal').innerHTML = order_complete;
+      // Simulate Order purchase
+      document.getElementById('order_completed').addEventListener('click', function(){
+        var dataObj = {
+          event: 'order_complete',
+          order_currency: 'KRW',
+          order_total: 54370.56  
+        };
+        window.dataLayer.push(dataObj);
+        document.getElementById('ordTotal').innerHTML = JSON.stringify(dataObj);
+      });  
+    </script>
     </script>
   </body>
 </html>
