@@ -30,6 +30,43 @@
     </header>
     <main>
       <p>How to enable currency conversion in GTM for your tracking and marketing tags for free. No calls to currency exchange APIs required. Update exchange rate as frequently as you need.</p>
+      <select name="currency" id="currency">
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="JPY">JPY</option>
+        <option value="GBP">GBP</option>
+        <option value="CNY">CNY</option>
+        <option value="AUD">AUD</option>
+        <option value="CAD">CAD</option>
+        <option value="CHF">CHF</option>
+        <option value="HKD">HKD</option>
+        <option value="SGD">SGD</option>
+        <option value="SEK">SEK</option>
+        <option value="KRW">KRW</option>
+        <option value="NOK">NOK</option>
+        <option value="NZD">NZD</option>
+        <option value="INR">INR</option>
+        <option value="MXN">MXN</option>
+        <option value="TWD">TWD</option>
+        <option value="ZAR">ZAR</option>
+        <option value="DKK">DKK</option>
+        <option value="PLN">PLN</option>
+        <option value="THB">THB</option>
+        <option value="ILS">ILS</option>
+        <option value="IDR">IDR</option>
+        <option value="CZK">CZK</option>
+        <option value="AED">AED</option>
+        <option value="TRY">TRY</option>
+        <option value="HUF">HUF</option>
+        <option value="CLP">CLP</option>
+        <option value="SAR">SAR</option>
+        <option value="PHP">PHP</option>
+        <option value="MYR">MYR</option>
+        <option value="COP">COP</option>
+        <option value="RUB">RUB</option>
+        <option value="RON">RON</option>
+        <option value="PEN">PEN</option>
+      </select>
       <pre id="ordTotal"></pre>
       <p><button id="order_completed">Simulate Order Completed</button></p>
       <pre id="ordTotalUSD"></pre>
@@ -43,9 +80,11 @@
     <script>
       // Simulate Order purchase
       document.getElementById('order_completed').addEventListener('click', function(){
+        var currency_selected = document.getElementById('currency').value;
+
         var dataObj = {
           event: 'order_complete',
-          order_currency: 'KRW',
+          order_currency: currency_selected,
           order_subtotal: 54370.56,
           order_discount: 3887.13,
           order_tax: 9855.00,
