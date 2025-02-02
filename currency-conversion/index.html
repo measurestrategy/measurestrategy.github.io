@@ -46,13 +46,20 @@
         var dataObj = {
           event: 'order_complete',
           order_currency: 'KRW',
-          order_total: 54370.56  
+          order_subtotal: 54370.56,
+          order_discount: 3887.13,
+          order_tax: 9855.00,
+          order_total: 60338.43 
         };
         window.dataLayer.push(dataObj);
+
         var order_complete_txt = `dataLayer.push({
   event: 'order_complete',
   order_currency: 'KRW',
-  order_total: 54370.56  
+  order_subtotal: 54370.56,
+  order_discount: 3887.13,
+  order_tax: 9855.00,
+  order_total: 60338.43 
 });`;
         document.getElementById('ordTotal').innerHTML = order_complete_txt;
       });  
