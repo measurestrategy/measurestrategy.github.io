@@ -30,7 +30,7 @@
     </header>
     <main>
       <p>How to enable currency conversion in GTM for your tracking and marketing tags for free. No calls to currency exchange APIs required. Update exchange rate as frequently as you need.</p>
-      <p>Select <select name="currency" id="currency"> and <button id="order_completed">Simulate Order Completed</button>
+      <p>Select <select name="currency" id="currency"> 
         <option value="USD">USD</option>
         <option value="EUR">EUR</option>
         <option value="JPY">JPY</option>
@@ -67,6 +67,7 @@
         <option value="RON">RON</option>
         <option value="PEN">PEN</option>
       </select>
+      and <button id="order_completed">Simulate Order Completed</button>
       </p>
       <pre id="ordTotal"></pre>
       <pre id="ordTotalUSD"></pre>
@@ -94,7 +95,7 @@
 
         var order_complete_txt = `dataLayer.push({
   event: 'order_complete',
-  order_currency: 'KRW',
+  order_currency: '${currency_selected}',
   order_subtotal: 54370.56,
   order_discount: 3887.13,
   order_tax: 9855.00,
