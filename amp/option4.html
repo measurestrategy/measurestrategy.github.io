@@ -19,11 +19,14 @@
         return result;
       }
       var userID = undefined;
+      var user_is_logged = false;
       if (!sessionStorage.getItem('userID')){
         userID = generateString(15);
         sessionStorage.setItem('userID', userID);
+        user_is_logged = true;
       } else {
         userID = sessionStorage.getItem('userID');
+        user_is_logged = true;
       }
     </script>
     
@@ -34,6 +37,7 @@
       event: 'dataLayerInit',
       user: {
         user_id: userID,
+        user_is_logged: user_is_logged
       }
     });
     </script> 
