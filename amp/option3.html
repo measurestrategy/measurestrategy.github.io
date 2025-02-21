@@ -28,6 +28,9 @@
         userID = sessionStorage.getItem('userID');
         user_is_logged = true;
       }
+      var userType = ['Starter','Plus','Growth','Enterprise'];
+      var random = Math.floor(Math.random() * userType.length);
+      var user_type = userType[random];
     </script>
     
     <!-- dataLayerInit -->
@@ -37,7 +40,8 @@
       event: 'dataLayerInit',
       user: {
         user_id: userID,
-        user_is_logged: user_is_logged
+        user_is_logged: user_is_logged,
+        user_type: user_type
       }
     });
     </script> 
