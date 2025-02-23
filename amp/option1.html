@@ -48,14 +48,15 @@
           elementInteractions: false,
         }
       };
-      amplitude.init(ampAPIkey, userID, ampOptions);
       
       // $identify
       const identifyEvent = new amplitude.Identify();
       identifyEvent.set('user_is_logged', user_is_logged); 
       identifyEvent.set('user_type', user_type);
       amplitude.identify(identifyEvent);
-    </script>
+      
+      amplitude.init(ampAPIkey, userID, ampOptions);
+</script>
   </head>
   <body>
     <header>
