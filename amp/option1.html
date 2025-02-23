@@ -19,13 +19,18 @@
         return result;
       }
       var userID = undefined;
+      var user_is_logged = false;
       if (!sessionStorage.getItem('userID')){
         userID = generateString(15);
         sessionStorage.setItem('userID', userID);
+        user_is_logged = true;
       } else {
         userID = sessionStorage.getItem('userID');
+        user_is_logged = true;
       }
-      var user_is_logged = (userID != undefined) ? true : false;
+      var userType = ['Starter','Plus','Growth','Enterprise'];
+      var random = Math.floor(Math.random() * userType.length);
+      var user_type = userType[random];
     </script>
 
     <!-- Amplitude https://amplitude.com/docs/sdks/analytics/browser/browser-sdk-2-->
@@ -48,6 +53,7 @@
       // $identify
       const identifyEvent = new amplitude.Identify();
       identifyEvent.set('user_is_logged', user_is_logged); 
+      identifyEvent.set('user_type', user_type);
       amplitude.identify(identifyEvent);
     </script>
   </head>
