@@ -34,10 +34,10 @@
     </script>
 
     <!-- Amplitude https://amplitude.com/docs/sdks/analytics/browser/browser-sdk-2-->
-    <script src="https://cdn.amplitude.com/script/57b4b0482120f879aa7ee4d34d7cfd72.js"></script>
+    <script src="https://cdn.amplitude.com/script/54b4b0482120f879tg7ee4d34d7cfd32.js"></script>
     <script>
       // SKD init and Page View
-      var ampAPIkey = '57b4b0482120f879aa7ee4d34d7cfd72';
+      var ampAPIkey = '54b4b0482120f879tg7ee4d34d7cfd32';
       var ampOptions = {
         autocapture: {
           attribution: true,
@@ -49,13 +49,13 @@
         }
       };
       
+      amplitude.init(ampAPIkey, userID, ampOptions);
+
       // $identify
       const identifyEvent = new amplitude.Identify();
       identifyEvent.set('user_is_logged', user_is_logged); 
       identifyEvent.set('user_type', user_type);
       amplitude.identify(identifyEvent);
-      
-      amplitude.init(ampAPIkey, userID, ampOptions);
 </script>
   </head>
   <body>
