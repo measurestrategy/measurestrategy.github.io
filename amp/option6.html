@@ -23,11 +23,10 @@
     
     <script src="https://cdn.amplitude.com/libs/analytics-browser-gtm-wrapper-3.15.0.js.br"></script>
     <script>
+     // config values
       var ampAPIkey = '57b4b0482120f879aa7ee4d34d7cfd72';
       var instanceName = 'allAmp';
       var ampUserID = userID;
-
-      // config values
       var ampOptions = {
         instanceName: instanceName,
         autocapture: {
@@ -42,12 +41,12 @@
         }
       };
     
-      // init  
+      // Amp init  
       amplitudeGTM.init(ampAPIkey, ampUserID, ampOptions).promise.then(function(result){
     
-        console.log("Amp sessionID: " + amplitudeGTM._iq["allAmp"].getSessionId());
-        console.log("Amp getDeviceId: " + amplitudeGTM._iq["allAmp"].getDeviceId());
-        console.log("Amp getUserId: " + amplitudeGTM._iq["allAmp"].getUserId());
+        console.log("Amp sessionID: " + amplitudeGTM._iq[instanceName].getSessionId());
+        console.log("Amp getDeviceId: " + amplitudeGTM._iq[instanceName].getDeviceId());
+        console.log("Amp getUserId: " + amplitudeGTM._iq[instanceName].getUserId());
     
       });
     </script>
@@ -58,7 +57,7 @@
         <a href="/amp/option4.html" class="current">Option 4</a>
       </nav>
       <h3>Amplitude Web. Option 6</h3>
-      <h4>GTM + Browser SDK in GTM HTML tag. Ultra Advanced</h4>
+      <h4>GTM + Browser SDK in GTM HTML tag. With instance Name</h4>
     </header>
     <main>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec viverra neque. Curabitur finibus porttitor quam, id dignissim massa mattis eu. Suspendisse dapibus nunc vel erat cursus efficitur. Aliquam ultricies eros eget urna ultricies.</p>
