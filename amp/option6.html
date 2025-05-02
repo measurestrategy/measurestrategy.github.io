@@ -18,19 +18,7 @@
         }
         return result;
       }
-      var userID = undefined;
-      var user_is_logged = false;
-      if (!sessionStorage.getItem('userID')){
-        userID = generateString(15);
-        sessionStorage.setItem('userID', userID);
-        user_is_logged = true;
-      } else {
-        userID = sessionStorage.getItem('userID');
-        user_is_logged = true;
-      }
-      var userType = ['Starter','Plus','Growth','Enterprise'];
-      var random = Math.floor(Math.random() * userType.length);
-      var user_type = userType[random];
+      var userID = generateString(15);
     </script>
     
     <script src="https://cdn.amplitude.com/libs/analytics-browser-gtm-wrapper-3.15.0.js.br"></script>
