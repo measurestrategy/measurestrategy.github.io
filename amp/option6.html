@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="21A3vpTGh97_AfzsV2BpLfz9fINsmm0ejFst-GwTjtw" />
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <title>Measure. Testing Analytics Stuff</title>
+    <script>
+      // User ID handling
+      const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      function generateString(length) {
+        let result = '';
+        const charactersLength = characters.length;
+        for ( let i = 0; i < length; i++ ) {
+          result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        return result;
+      }
+      var userID = undefined;
+      var user_is_logged = false;
+      if (!sessionStorage.getItem('userID')){
+        userID = generateString(15);
+        sessionStorage.setItem('userID', userID);
+        user_is_logged = true;
+      } else {
+        userID = sessionStorage.getItem('userID');
+        user_is_logged = true;
+      }
+      var userType = ['Starter','Plus','Growth','Enterprise'];
+      var random = Math.floor(Math.random() * userType.length);
+      var user_type = userType[random];
+    </script>
+    
+    <script src="https://cdn.amplitude.com/libs/analytics-browser-gtm-wrapper-3.15.0.js.br"></script>
+    <script>
+      var ampAPIkey = '57b4b0482120f879aa7ee4d34d7cfd72';
+      var instanceName = 'allAmp';
+      var ampUserID = userID;
+      
+      // config values
+      var ampOptions = {
+        instanceName: instanceName,
+        autocapture: {
+          attribution: {
+            resetSessionOnNewCampaign: true,
+          },
+          sessions: true,
+          pageViews: false,
+          formInteractions: false,
+          fileDownloads: false,
+          elementInteractions: false,
+        }
+      };
+    
+      // init  
+      amplitudeGTM.init(ampAPIkey, ampUserID, ampOptions).promise.then(function(result){
+    
+        console.log("Amp sessionID: " + amplitudeGTM._iq["allAmp"].getSessionId());
+        console.log("Amp getDeviceId: " + amplitudeGTM._iq["allAmp"].getDeviceId());
+        console.log("Amp getUserId: " + amplitudeGTM._iq["allAmp"].getUserId());
+    
+      });
+    </script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/amp/option4.html" class="current">Option 4</a>
+      </nav>
+      <h3>Amplitude Web. Option 5</h3>
+      <h4>GTM + Browser SDK in GTM HTML tag. Ultra Advanced</h4>
+    </header>
+    <main>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec viverra neque. Curabitur finibus porttitor quam, id dignissim massa mattis eu. Suspendisse dapibus nunc vel erat cursus efficitur. Aliquam ultricies eros eget urna ultricies.</p>
+      <pre id="code"></pre>
+      <p>Aliquam pellentesque eros vel mauris scelerisque, in placerat nulla suscipit. Curabitur pulvinar congue arcu vitae finibus. Vestibulum suscipit magna et sem varius sagittis. Nullam luctus congue felis at ultrices. Pellentesque at velit sed</p>
+      <img alt="A dog on an iPad" src="/img/analytics-debugger-ducky.jpg" />
+      <p>Phasellus ut cursus tellus. Morbi ac magna ut magna fermentum tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse feugiat, ante in gravida tristique, ipsum ante dapibus orci, non fermentum mi velit id lacus.</p>
+    </main>
+    <footer>
+      <div><a href="https://www.linkedin.com/in/anilopez/">Ani Lopez</a></div>
+    </footer>
+    <script>
+      // display user ID
+      document.getElementById('code').innerHTML = "User ID: " + userID;
+    </script>
+  </body>
+</html>
