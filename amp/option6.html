@@ -56,8 +56,14 @@
             userID: amplitudeGTM._iq[instanceName].getUserId(),
           }
         }); 
-
         console.table(dataLayer[0]);
+
+        // $identify User Properties
+        var identifyEvent = new amplitudeGTM._iq[instanceName].Identify();
+        identifyEvent.set('user_is_logged', 'yes'); 
+        identifyEvent.set('user_type', 'premium');
+        identifyEvent.set('user_behaviour', 'no conversion yet');
+        amplitudeGTM._iq[instanceName].identify(identifyEvent); 
 
         // page_view        
         var eventData = {
@@ -72,8 +78,6 @@
           }
         };
         amplitudeGTM._iq[instanceName].track(eventData.name, eventData.properties);
-        
-
 
       });
     </script>
