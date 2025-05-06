@@ -47,10 +47,6 @@
       // Amp init  
       amplitudeGTM.createInstance(instanceName).init(ampAPIkey, ampUserID, ampOptions).promise.then(function(result){
         console.log('Amp GTM initializated');
-
-        console.log("Amp sessionID: " + amplitudeGTM._iq[instanceName].getSessionId());
-        console.log("Amp getDeviceId: " + amplitudeGTM._iq[instanceName].getDeviceId());
-        console.log("Amp getUserId: " + amplitudeGTM._iq[instanceName].getUserId());
     
         // semd Amp IDs to dataLayer
         window.dataLayer.push({
@@ -62,6 +58,7 @@
           }
         }); 
 
+        console.table(dataLayer[0]);
       });
     </script>
   </head>
