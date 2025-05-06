@@ -58,13 +58,6 @@
         }); 
         console.table(dataLayer[0]);
 
-        // $identify User Properties
-        var identifyEvent = new amplitude.identify();
-        identifyEvent.set('user_is_logged', 'yes'); 
-        identifyEvent.set('user_type', 'premium');
-        identifyEvent.set('user_behaviour', 'no conversion yet');
-        amplitudeGTM._iq[instanceName].identify(identifyEvent); 
-
         // page_view event     
         var eventData = {
           name: 'page_view',
