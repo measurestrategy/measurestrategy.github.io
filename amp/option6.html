@@ -58,6 +58,22 @@
         }); 
 
         console.table(dataLayer[0]);
+
+        // page_view        
+        var eventData = {
+          name: 'page_view',
+          properties: {
+            page_url: {{Page Hostname}}+{{Page Path}},
+            page_hostname: {{Page Hostname}},
+            page_path: {{Page Path}},
+            page_query: {{URL, Query}},
+            page_fragment: {{URL, Fragment}}
+          }
+        };
+        amplitudeGTM._iq[instanceName].track(eventData.name, eventData.properties);
+        
+
+
       });
     </script>
   </head>
