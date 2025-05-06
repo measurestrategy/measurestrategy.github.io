@@ -63,11 +63,12 @@
         var eventData = {
           name: 'page_view',
           properties: {
-            page_url: {{Page Hostname}}+{{Page Path}},
-            page_hostname: {{Page Hostname}},
-            page_path: {{Page Path}},
-            page_query: {{URL, Query}},
-            page_fragment: {{URL, Fragment}}
+            page_url: document.location.hostname+document.location.pathname,
+            page_hostname: document.location.hostname,
+            page_path: document.location.pathname,
+            page_query: (document.location.search.includes('?')) ? document.location.search.split('?')[1] : undefined,
+            page_fragment: (document.location.hash.includes('#')) ? document.location.hash.split('#')[1] : undefined,
+            page_title: document.title
           }
         };
         amplitudeGTM._iq[instanceName].track(eventData.name, eventData.properties);
