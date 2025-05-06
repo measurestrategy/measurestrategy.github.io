@@ -42,8 +42,7 @@
       };
     
       // Amp init  
-      var ampGTMInstance = amplitudeGTM.createInstance(instanceName);
-      ampGTMInstance.init(ampAPIkey, ampUserID, ampOptions).promise.then(function(result){
+      amplitudeGTM.createInstance(instanceName).init(ampAPIkey, ampUserID, ampOptions).promise.then(function(result){
         console.log('Amp GTM initializated');
         console.log("Amp sessionID: " + amplitudeGTM._iq[instanceName].getSessionId());
         console.log("Amp getDeviceId: " + amplitudeGTM._iq[instanceName].getDeviceId());
