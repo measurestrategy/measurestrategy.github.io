@@ -77,7 +77,7 @@
         identifyEvent.set('user_is_logged', 'yes');
         identifyEvent.set('user_type', 'premium');
         identifyEvent.set('user_behaviour', 'no conversion yet');
-        amplitudeGTM._iq['allAmp'].identify(identifyEvent);
+        amplitudeGTM._iq[instanceName].identify(identifyEvent);
 
       });
     </script>
