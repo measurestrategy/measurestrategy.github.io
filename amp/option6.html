@@ -73,11 +73,11 @@
         amplitudeGTM._iq[instanceName].track(eventData.name, eventData.properties);
 
         // $identify for user properties
-        var identifyEvent = new amplitudeGTM._iq['allAmp'].identify();
-        identifyEvent.set('user_is_logged', 'yes'); 
+        var identifyEvent = new amplitude.Identify();
+        identifyEvent.set('user_is_logged', 'yes');
         identifyEvent.set('user_type', 'premium');
         identifyEvent.set('user_behaviour', 'no conversion yet');
-        amplitudeGTM._iq['allAmp'].identify(identifyEvent); 
+        amplitudeGTM._iq['allAmp'].identify(identifyEvent);
 
       });
     </script>
