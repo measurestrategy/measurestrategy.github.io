@@ -88,12 +88,69 @@
       <h4>GTM Browser SDK with instance Name</h4>
     </header>
     <main>
-      <p>It is unlikely that you have a hard-coded #Amplitude implementation in your website alongside a second one done with Google Tag Manager. Also unlikely that you need a more advnace implementation where you need to ensure the SDK is really initiated to have a tight control of order in the basic events plus sending to the dataLayer information about Amplitude session, device and user IDs to pass that to other tracking tools or services you may have in your website so you can merge data for advanced analysis BUT if that's an scenario you are experiencing, here you have a way to solve it all in once. Check the code of this page to see it in action.</p>
+      <p>It is unlikely that you have a hard-coded Amplitude implementation in your website alongside a second one done with Google Tag Manager. Also unlikely that you need a more advnace implementation where you need to ensure the SDK is really initiated to have a tight control of order in the basic events plus sending to the dataLayer information about Amplitude session, device and user IDs to pass that to other tracking tools or services you may have in your website so you can merge data for advanced analysis BUT if that's an scenario you are experiencing, here you have a way to solve it all in once. Check the code of this page to see it in action.</p>
       <pre id="code"></pre>
       <p>It uses an Instance Name the GTM analytics browser wrapper so you will see the use of amplitudeGTM._iq[instanceName] to isolate one implementation from the other and avoid polution.</p>
       <img alt="A dog on an iPad" src="/img/analytics-debugger-ducky.jpg" />
       <p>The code, as indicated, can be added into GTM HTML container with the trigger that works in your scenario and the GTM variables to replace the hard coded ones there.</p>
     </main>
+    <pre>
+<script src="https://cdn.amplitude.com/libs/analytics-browser-gtm-wrapper-3.15.0.js.br"></script>
+<script>
+ // config values
+  var ampAPIkey = '57b4b0482120f879aa7ee4d34d7cfd72';
+  var instanceName = 'allAmp';
+  var ampUserID = userID;
+  var ampOptions = {
+    autocapture: {
+      attribution: {
+        resetSessionOnNewCampaign: true,
+      },
+      sessions: true,
+      pageViews: false,
+      formInteractions: false,
+      fileDownloads: false,
+      elementInteractions: false,
+    }
+  };
+
+  // Amp init  
+  amplitudeGTM.createInstance(instanceName).init(ampAPIkey, ampUserID, ampOptions).promise.then(function(result){
+
+    // semd Amp IDs to dataLayer
+    window.dataLayer.push({
+      event: 'ampSDKinit',
+      ampData: {
+        sessionID: amplitudeGTM._iq[instanceName].getSessionId(),
+        deviceID: amplitudeGTM._iq[instanceName].getDeviceId(),
+        userID: amplitudeGTM._iq[instanceName].getUserId(),
+      }
+    }); 
+
+    // $identify for user properties
+    var identifyEvent = new amplitude.Identify();
+    identifyEvent.set('user_is_logged', 'yes');
+    identifyEvent.set('user_type', 'premium');
+    identifyEvent.set('user_behaviour', 'no conversion yet');
+    amplitudeGTM._iq[instanceName].identify(identifyEvent);
+
+    // page_view event     
+    var eventData = {
+      name: 'page_view',
+      properties: {
+        page_url: document.location.hostname+document.location.pathname,
+        page_hostname: document.location.hostname,
+        page_path: document.location.pathname,
+        page_query: (document.location.search.includes('?')) ? document.location.search.split('?')[1] : undefined,
+        page_fragment: (document.location.hash.includes('#')) ? document.location.hash.split('#')[1] : undefined,
+        page_title: document.title
+      }
+    };
+    amplitudeGTM._iq[instanceName].track(eventData.name, eventData.properties);
+
+  });
+</script> 
+    </pre>
     <footer>
       <div><a href="https://www.linkedin.com/in/anilopez/">Ani Lopez</a></div>
     </footer>
