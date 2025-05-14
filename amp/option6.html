@@ -23,7 +23,8 @@
       // dataLayer 
       window.dataLayer = window.dataLayer || [];
     </script>
-    
+
+<!-- Place this in a GTM HTML container with the trigger that works in your scenario BEGINNING --> 
     <script src="https://cdn.amplitude.com/libs/analytics-browser-gtm-wrapper-3.15.0.js.br"></script>
     <script>
      // config values
@@ -45,7 +46,6 @@
     
       // Amp init  
       amplitudeGTM.createInstance(instanceName).init(ampAPIkey, ampUserID, ampOptions).promise.then(function(result){
-        console.log('Amp GTM initializated');
     
         // semd Amp IDs to dataLayer
         window.dataLayer.push({
@@ -56,7 +56,6 @@
             userID: amplitudeGTM._iq[instanceName].getUserId(),
           }
         }); 
-        console.table(dataLayer[0]);
 
         // $identify for user properties
         var identifyEvent = new amplitude.Identify();
@@ -81,18 +80,19 @@
 
       });
     </script>
+<!-- END Place this in a GTM HTML container with the trigger that works in your scenario -->     
   </head>
   <body>
     <header>
       <h3>Amplitude Web. Option 6</h3>
-      <h4>GTM + Browser SDK in GTM HTML tag. With instance Name</h4>
+      <h4>GTM Browser SDK with instance Name</h4>
     </header>
     <main>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec viverra neque. Curabitur finibus porttitor quam, id dignissim massa mattis eu. Suspendisse dapibus nunc vel erat cursus efficitur. Aliquam ultricies eros eget urna ultricies.</p>
+      <p>It is unlikely that you have a hard-coded #Amplitude implementation in your website alongside a second one done with Google Tag Manager. Also unlikely that you need a more advnace implementation where you need to ensure the SDK is really initiated to have a tight control of order in the basic events plus sending to the dataLayer information about Amplitude session, device and user IDs to pass that to other tracking tools or services you may have in your website so you can merge data for advanced analysis BUT if that's an scenario you are experiencing, here you have a way to solve it all in once. Check the code of this page to see it in action.</p>
       <pre id="code"></pre>
-      <p>Aliquam pellentesque eros vel mauris scelerisque, in placerat nulla suscipit. Curabitur pulvinar congue arcu vitae finibus. Vestibulum suscipit magna et sem varius sagittis. Nullam luctus congue felis at ultrices. Pellentesque at velit sed</p>
+      <p>It uses an Instance Name the GTM analytics browser wrapper so you will see the use of amplitudeGTM._iq[instanceName] to isolate one implementation from the other and avoid polution.</p>
       <img alt="A dog on an iPad" src="/img/analytics-debugger-ducky.jpg" />
-      <p>Phasellus ut cursus tellus. Morbi ac magna ut magna fermentum tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse feugiat, ante in gravida tristique, ipsum ante dapibus orci, non fermentum mi velit id lacus.</p>
+      <p>The code, as indicated, can be added into GTM HTML container with the trigger that works in your scenario and the GTM variables to replace the hard coded ones there.</p>
     </main>
     <footer>
       <div><a href="https://www.linkedin.com/in/anilopez/">Ani Lopez</a></div>
