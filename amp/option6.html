@@ -69,12 +69,15 @@
         amplitudeGTM._iq[instanceName].track(eventData.name, eventData.properties);
 
         // semd Amp IDs to dataLayer
+        var sessionID = amplitudeGTM._iq[instanceName].getSessionId();
+        var deviceID = amplitudeGTM._iq[instanceName].getDeviceId();
+
         window.dataLayer.push({
           event: 'ampSDKinit',
           ampData: {
-            sessionID: amplitudeGTM._iq[instanceName].getSessionId(),
-            deviceID: amplitudeGTM._iq[instanceName].getDeviceId(),
-            userID: amplitudeGTM._iq[instanceName].getUserId(),
+            sessionID: sessionID,
+            deviceID: deviceID,
+            userID: ampUserID,
           }
         }); 
 
@@ -99,7 +102,16 @@
     </footer>
     <script>
       // display user ID
-      document.getElementById('code').innerHTML = "User ID: " + userID;
+      var innerCode = `window.dataLayer.push({
+          event: 'ampSDKinit',
+          ampData: {
+            sessionID: ${sessionID},
+            deviceID: ${deviceID},
+            userID: ${ampUserID},
+          }
+        }); 
+      `;
+      document.getElementById('code').innerHTML = innerCode;
     </script>
   </body>
 </html>
