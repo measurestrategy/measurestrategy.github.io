@@ -88,11 +88,11 @@
       <h4>GTM Browser SDK with instance Name</h4>
     </header>
     <main>
-      <p>It is unlikely that you have a hard-coded Amplitude implementation in your website alongside a second one done with Google Tag Manager. Also unlikely that you need a more advnace implementation where you need to ensure the SDK is really initiated to have a tight control of order in the basic events plus sending to the dataLayer information about Amplitude session, device and user IDs to pass that to other tracking tools or services you may have in your website so you can merge data for advanced analysis BUT if that's an scenario you are experiencing, here you have a way to solve it all in once. Check the code of this page to see it in action.</p>
+      <p>It is unlikely that you have a hard-coded Amplitude implementation in your website alongside a second one done with Google Tag Manager. Also unlikely that you need a more advanced implementation where you have to ensure the SDK is really initiated before anything else to have a tight control of order in the basic events plus sending to the dataLayer information about Amplitude session, device and user IDs to make it available to other tracking tools or services you may have in your website so you can merge data for complex analysis BUT if that's an scenario you are experiencing, here you have a way to solve it all in once. Check the code of this page to see it in action.</p>
       <pre id="code"></pre>
-      <p>It uses an Instance Name the GTM analytics browser wrapper so you will see the use of amplitudeGTM._iq[instanceName] to isolate one implementation from the other and avoid polution.</p>
+      <p>It uses an Instance Name the GTM analytics browser wrapper so you will see the use of <b>amplitudeGTM._iq[instanceName]</b> to isolate one implementation from the other and avoid polution.</p>
       <img alt="A dog on an iPad" src="/img/analytics-debugger-ducky.jpg" />
-      <p>The code, as indicated, can be added into GTM HTML container with the trigger that works in your scenario and the GTM variables to replace the hard coded ones there.</p>
+      <p>The code, as indicated in the HTML comments, can be added into GTM HTML container with the trigger that works in your scenario and the GTM variables to replace the hard coded ones there.</p>
     </main>
     <footer>
       <div><a href="https://www.linkedin.com/in/anilopez/">Ani Lopez</a></div>
