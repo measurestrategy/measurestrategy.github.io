@@ -84,6 +84,7 @@
 // display dataLayer push just to illusrtate it in page, this is not necessary in produciton environment
 var innerCode = `window.dataLayer.push({
   event: 'ampSDKinit',
+  ampSKDstatus: 'initiated',
   ampData: {
     sessionID: ${sessionID},
     deviceID: ${deviceID},
