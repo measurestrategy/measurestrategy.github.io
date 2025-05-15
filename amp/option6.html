@@ -47,16 +47,6 @@
       // Amp init  
       amplitudeGTM.createInstance(instanceName).init(ampAPIkey, ampUserID, ampOptions).promise.then(function(result){
     
-        // semd Amp IDs to dataLayer
-        window.dataLayer.push({
-          event: 'ampSDKinit',
-          ampData: {
-            sessionID: amplitudeGTM._iq[instanceName].getSessionId(),
-            deviceID: amplitudeGTM._iq[instanceName].getDeviceId(),
-            userID: amplitudeGTM._iq[instanceName].getUserId(),
-          }
-        }); 
-
         // $identify for user properties
         var identifyEvent = new amplitude.Identify();
         identifyEvent.set('user_is_logged', 'yes');
@@ -77,6 +67,16 @@
           }
         };
         amplitudeGTM._iq[instanceName].track(eventData.name, eventData.properties);
+
+        // semd Amp IDs to dataLayer
+        window.dataLayer.push({
+          event: 'ampSDKinit',
+          ampData: {
+            sessionID: amplitudeGTM._iq[instanceName].getSessionId(),
+            deviceID: amplitudeGTM._iq[instanceName].getDeviceId(),
+            userID: amplitudeGTM._iq[instanceName].getUserId(),
+          }
+        }); 
 
       });
     </script>
