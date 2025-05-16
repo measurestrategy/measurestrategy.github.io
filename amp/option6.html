@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
     <title>Advanced Amplitude Web tracking Implementation. Ani Lopez</title>
     <script>
-      // User ID handling
+      // random User ID generation for the sake of this example. it should come from your backend if user is logged in 
       const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
       function generateString(length) {
         let result = '';
@@ -18,7 +18,7 @@
         return result;
       }
     
-      // dataLayer 
+      // dataLayer initialization
       window.dataLayer = window.dataLayer || [];
     </script>
 
@@ -28,8 +28,8 @@
      // config values
       var ampAPIkey = '57b4b0482120f879aa7ee4d34d7cfd72';
       var instanceName = 'SecondAmp';
-      var ampUserID = undefined;
-      var ampOptions = {
+      var ampUserID = generateString(15);  // whatever internal User ID you can pass here or undefined if user has not logged in yet
+      var ampOptions = {                   // configure here your Amplitude options
         autocapture: {
           attribution: {
             resetSessionOnNewCampaign: true,
@@ -44,15 +44,26 @@
     
       // Amp init  
       amplitudeGTM.createInstance(instanceName).init(ampAPIkey, ampUserID, ampOptions).promise.then(function(result){
-    
-        // $identify for user properties
+        
+        // 01 semds Amp IDs to dataLayer
+        window.dataLayer.push({
+          event: 'amplitudeSDK',
+          amplitudeSDKstatus: 'initiated',
+          amplitudeData: {
+            sessionID: amplitudeGTM._iq[instanceName].getSessionId(),
+            deviceID: amplitudeGTM._iq[instanceName].getDeviceId(),
+            userID: amplitudeGTM._iq[instanceName].getUserId()
+          }
+        }); 
+        
+        // 02 sends $identify for user properties
         var identifyEvent = new amplitude.Identify();
         identifyEvent.set('user_is_logged', 'yes');
         identifyEvent.set('user_type', 'premium');
         identifyEvent.set('user_behaviour', 'no conversion yet');
         amplitudeGTM._iq[instanceName].identify(identifyEvent);
 
-        // page_view event     
+        // 03 sends page_view event     
         var eventData = {
           name: 'page_view',
           properties: {
@@ -66,19 +77,11 @@
         };
         amplitudeGTM._iq[instanceName].track(eventData.name, eventData.properties);
 
-        // semd Amp IDs to dataLayer
-        window.dataLayer.push({
-          event: 'amplitudeSDK',
-          amplitudeSDKstatus: 'initiated',
-          amplitudeData: {
-            sessionID: amplitudeGTM._iq[instanceName].getSessionId(),
-            deviceID: amplitudeGTM._iq[instanceName].getDeviceId(),
-            userID: amplitudeGTM._iq[instanceName].getUserId()
-          }
-        }); 
       });
     </script>
 <!-- END Place this in a GTM HTML container with the trigger that works in your scenario -->     
+
+
   </head>
   <body>
     <header>
