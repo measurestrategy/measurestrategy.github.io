@@ -107,7 +107,7 @@ document.getElementById('code').innerHTML = innerCode;
     <main>
       <p>It is unlikely that you have a hard-coded <a href="https://amplitude.com">Amplitude</a> implementation in your websites alongside a second one done with Google Tag Manager and in need of a more advanced solution providing flexibility, scalability and control BUT if that's an scenario you are facing, here you have a way to solve it all in once. Check the code of this page to see it in action.</p>
       <ul> 
-        <li>Ensures the SDK is really initiated before anything else</lili>
+        <li>Ensures the SDK is really initiated before anything else</li>
         <li>It uses an Instance Name the GTM analytics browser wrapper so you will see the use of <b>amplitudeGTM._iq[instanceName]</b> to isolate one implementation from the other and avoid polution</li>
         <li>Enables a tight control of order in the basic events like $identify and page view</li>
         <li>Sends to the dataLayer information about Amplitude session, device and user IDs which makesit available to other tracking tools or services you may have in your website (allows you to merge data from several tools using those IDs as keys)</li>
@@ -116,7 +116,7 @@ document.getElementById('code').innerHTML = innerCode;
       </ul>
       <img src="/img/analytics-debugger-ducky.jpg" />
       <p>The code, as indicated in the HTML comments, can be added into GTM HTML container with the trigger that works in your scenario and the GTM variables to replace the hard coded ones there.</p>
-      <p>This is how the dataLayer push would look like.</pp>
+      <p>This is how the dataLayer push would look like.</p>
       <pre id="code"></pre>
     </main>
     <footer>
