@@ -106,10 +106,18 @@ document.getElementById('code').innerHTML = innerCode;
       <p><a href="https://www.linkedin.com/in/anilopez/">Ani Lopez</a></p>
     </header>
     <main>
-      <p>It is unlikely that you have a hard-coded Amplitude implementation in your website alongside a second one done with Google Tag Manager. Also unlikely that you need a more advanced implementation where you have to ensure the SDK is really initiated before anything else, to have a tight control of order in the basic events ($identify and page view) plus sending to the dataLayer information about Amplitude session, device and user IDs to make it available to other tracking tools or services you may have in your website (so you can merge data from both tools using those IDs as keys) or implement cross-domain tracking BUT if that's an scenario you are experiencing, here you have a way to solve it all in once. Check the code of this page to see it in action.</p>
+      <p>It is unlikely that you have a hard-coded <a href="https://amplitude.com">Amplitude</a> implementation in your website alongside a second one done with Google Tag Manager and im the need of a more advanced implementation providing flexibilitiy, scalability and control BUT if that's an scenario you are experiencing, here you have a way to solve it all in once. Check the code of this page to see it in action.</p>
+      <ul> 
+        <li>It ensures the SDK is really initiated before anything else</lili>
+        <li>Enables a tight control of order in the basic events like $identify and page view</li>
+        <li>Sends to the dataLayer information about Amplitude session, device and user IDs which makesit available to other tracking tools or services you may have in your website (allows you to merge data from several tools using those IDs as keys)</li>
+        <li>Faciliteates cross-domain tracking implementation</li>
+        <li>Makes easier the integration of other Amplitude tools like <a href="https://amplitude.com/session-replay">Session Replay</a> or <a href="https://amplitude.com/guides-and-surveys">Guides & Surveys</a></li>
+      </ul>
       <img alt="A dog on an iPad" src="/img/analytics-debugger-ducky.jpg" />
       <p>It uses an Instance Name the GTM analytics browser wrapper so you will see the use of <b>amplitudeGTM._iq[instanceName]</b> to isolate one implementation from the other and avoid polution.</p>
       <p>The code, as indicated in the HTML comments, can be added into GTM HTML container with the trigger that works in your scenario and the GTM variables to replace the hard coded ones there.</p>
+      <p>This is how the dataLayer push would look like.</pp>
       <pre id="code"></pre>
     </main>
     <footer>
