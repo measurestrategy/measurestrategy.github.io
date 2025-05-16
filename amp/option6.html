@@ -68,16 +68,13 @@
         amplitudeGTM._iq[instanceName].track(eventData.name, eventData.properties);
 
         // semd Amp IDs to dataLayer
-        var sessionID = amplitudeGTM._iq[instanceName].getSessionId();
-        var deviceID = amplitudeGTM._iq[instanceName].getDeviceId();
-
         window.dataLayer.push({
           event: 'amplitudeSDK',
           amplitudeSDKstatus: 'initiated',
           amplitudeData: {
-            sessionID: sessionID,
-            deviceID: deviceID,
-            userID: ampUserID,
+            sessionID: amplitudeGTM._iq[instanceName].getSessionId(),
+            deviceID: amplitudeGTM._iq[instanceName].getDeviceId(),
+            userID: amplitudeGTM._iq[instanceName].getUserId(),
           }
         }); 
       });
