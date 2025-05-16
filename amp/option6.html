@@ -17,7 +17,6 @@
         }
         return result;
       }
-      var userID = generateString(15);
     
       // dataLayer 
       window.dataLayer = window.dataLayer || [];
@@ -29,7 +28,7 @@
      // config values
       var ampAPIkey = '57b4b0482120f879aa7ee4d34d7cfd72';
       var instanceName = 'SecondAmp';
-      var ampUserID = userID;
+      var ampUserID = undefined;
       var ampOptions = {
         autocapture: {
           attribution: {
