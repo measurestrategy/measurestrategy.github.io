@@ -30,6 +30,7 @@
       script.type = 'text/javascript';
       script.async = true;
 
+      // Safeguard. Ensures we have no errors if GTM wrapper is not fetch
       script.onload = function() {
         // Amp config details
         var ampAPIkey = '57b4b0482120f879aa7ee4d34d7cfd72';;
@@ -48,14 +49,14 @@
           }
         };
 
-        // if Amp present create instance 
+        // Safeguard. If Amp present create instance 
         if (window.amplitude || window.amplitudeGTM) {
           window.myAmpTraker = (window.amplitudeGTM || window.amplitude).createInstance(ampInstanceName);
           
-          // init ans wait for SDK to be loaded
+          // Initialize and wait for SDK to finish initialization
           myAmpTraker.init(ampAPIkey, ampUserID, ampOptions).promise.then(function(){
           
-            // dL push with Amp details    
+            // 01. dL push with Amp details    
             window.dataLayer.push({
               event: 'amplitudeSDK',
               amplitudeSKDstatus: 'initiated',
@@ -66,18 +67,18 @@
               }
             });
             
-            // Send user properties $identify event   
+            // 02. Send user properties $identify event   
             var identifyEvent = new (window.amplitudeGTM || window.amplitude).Identify();
             identifyEvent.set('user_is_logged', 'yes');
             identifyEvent.set('user_type', 'premium');
             identifyEvent.set('user_behaviour', 'no conversion yet');            
             myAmpTraker.identify(identifyEvent);
             
-            // Send page_view event
+            // 03. Send page_view event
             var eventData = {
               name: 'page_view',
               properties: {
-                page_url: [document.location.hostname, document.location.pathname].join(''),
+                page_url: [document.location.hostname, document.location.pathname].join(''), // Safeguard. In case any concatenation breaks the code
                 page_hostname: document.location.hostname,
                 page_path: document.location.pathname,
                 page_query: (document.location.search.includes('?')) ? document.location.search.split('?')[1] : undefined,
