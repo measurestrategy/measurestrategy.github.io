@@ -50,18 +50,19 @@
 
         // if Amp present create instance
         if (window.amplitude || window.amplitudeGTM) {
-          window.unityTracker = (window.amplitudeGTM || window.amplitude).createInstance(ampInstanceName);
+          window.myAmpTraker = (window.amplitudeGTM || window.amplitude).createInstance(ampInstanceName);
           
           // init ans wait for SDK to be loaded
-          unityTracker.init(ampAPIkey, ampUserID, ampOptions).promise.then(function() {
+          myAmpTraker.init(ampAPIkey, ampUserID, ampOptions).promise.then(function() {
           
             // dL push with Amp details    
             window.dataLayer.push({
-              event: 'ampSDKinit',
-              ampData: {
-                sessionID: unityTracker.getSessionId(),
-                deviceID: unityTracker.getDeviceId(),
-                userID: unityTracker.getUserId(),
+              event: 'amplitudeSDK',
+              amplitudeSKDstatus: 'initiated',
+              amplitudeData: {
+                sessionID: myAmpTraker.getSessionId(),
+                deviceID: myAmpTraker.getDeviceId(),
+                userID: myAmpTraker.getUserId(),
               }
             });
             
@@ -70,7 +71,7 @@
             identifyEvent.set('user_is_logged', 'yes');
             identifyEvent.set('user_type', 'premium');
             identifyEvent.set('user_behaviour', 'no conversion yet');            
-            unityTracker.identify(identifyEvent);
+            myAmpTraker.identify(identifyEvent);
             
             // Send page_view event
             var eventData = {
@@ -84,7 +85,7 @@
                 page_title: document.title
               }
             };
-            unityTracker.track(eventData.name, eventData.properties);
+            myAmpTraker.track(eventData.name, eventData.properties);
           
           })
 
