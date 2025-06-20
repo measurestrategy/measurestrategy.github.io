@@ -48,12 +48,12 @@
           }
         };
 
-        // if Amp present create instance
+        // if Amp present create instance 
         if (window.amplitude || window.amplitudeGTM) {
           window.myAmpTraker = (window.amplitudeGTM || window.amplitude).createInstance(ampInstanceName);
           
           // init ans wait for SDK to be loaded
-          myAmpTraker.init(ampAPIkey, ampUserID, ampOptions).promise.then(function() {
+          myAmpTraker.init(ampAPIkey, ampUserID, ampOptions).promise.then(function(){
           
             // dL push with Amp details    
             window.dataLayer.push({
@@ -87,12 +87,11 @@
             };
             myAmpTraker.track(eventData.name, eventData.properties);
           
-          })
+          });
 
-      } else {
-        console.error('Amplitude Not Loaded');
-      }         
-
+        } else {
+          console.error('Amplitude Not Loaded');
+        }         
       }
       
       var firstScript = document.getElementsByTagName('script')[0];
